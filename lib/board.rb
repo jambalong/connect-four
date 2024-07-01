@@ -20,4 +20,18 @@ class Board
   def column_not_full?(column)
     @grid[0][column] = empty_token
   end
+
+  def place_token(column, token)
+    row = next_available_row(column)
+    @grid[row][column] = token
+  end
+
+  private
+
+  def next_available_row(column)
+    (0..5).reverse_each do |row|
+      return row if @grid[row][column] == empty_token
+    end
+    nil
+  end
 end

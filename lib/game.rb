@@ -6,8 +6,6 @@ require_relative 'token'
 
 # Connect Four
 class Game
-  attr_reader :player_one, :player_two
-
   include Token
 
   def initialize
@@ -23,8 +21,8 @@ class Game
   end
 
   def set_players_name
-    player_one.name = get_player_name(1)
-    player_two.name = get_player_name(2)
+    @player_one.name = get_player_name(1)
+    @player_two.name = get_player_name(2)
   end
 
   private

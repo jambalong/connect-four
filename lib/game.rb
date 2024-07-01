@@ -19,6 +19,7 @@ class Game
   def play_game
     display_intro
     set_players_name
+    display_board
   end
 
   def set_players_name
@@ -27,6 +28,18 @@ class Game
   end
 
   private
+
+  def display_board
+    display_game_title
+    @board.display_board
+  end
+
+  def display_game_title
+    puts '  _                      ___          '.yellow
+    puts ' / )           _  _ _/  (_          _ '.yellow
+    puts '(__  () /) /) (- (  /   /    () (/ /  '.yellow
+    puts ''
+  end
 
   def get_player_name(player_number)
     puts "Enter player #{player_number}'s name:"

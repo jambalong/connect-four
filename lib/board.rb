@@ -16,4 +16,8 @@ class Board
     end
     puts (1..7).to_a.join(' ')
   end
+
+  def column_not_full?(column)
+    @grid[0][column] = empty_token
+  end
 end

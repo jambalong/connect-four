@@ -26,6 +26,38 @@ class Board
     @grid[row][column] = token
   end
 
+  def winning_move?(token)
+    # Check horizontal wins
+    @grid.each do |row|
+      (0..3).each do |col|
+        return true if row[col..col+3].all? { |t| t == token }
+      end
+    end
+
+    # Check vertical wins
+    (0..6).each do |col|
+      (0..2).each do |row|
+        return true if (0..3).all? { |i| @grid[row + i][col] == token }
+      end
+    end
+
+    # Check diagonal (top-left to bottom-right) wins
+    (0..2).each do |row|
+      (0..3).each do |col|
+        return true if (0..3).all? { |i| @grid[row + i][col + i] == token }
+      end
+    end
+
+    # Check diagonal (bottom-left to top-right) wins
+    (3..5).each do |row|
+      (0..3).each do |col|
+        return true if (0..3).all? { |i| @grid[row - i][col + i] == token }
+      end
+    end
+
+    false  # No winning move found
+  end
+
   private
 
   def next_available_row(column)

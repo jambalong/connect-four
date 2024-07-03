@@ -5,14 +5,14 @@ require 'colorize'
 # Contains three tokens for game
 module Token
   def empty_token
-    "○".white
+    '○'.white
   end
 
   def red_token
-    "●".red
+    '●'.red
   end
 
   def blue_token
-    "●".blue
+    '●'.blue
   end
 end

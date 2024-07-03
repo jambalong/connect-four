@@ -18,7 +18,7 @@ class Board
   end
 
   def column_not_full?(column)
-    @grid[0][column] = empty_token
+    @grid[0][column] == empty_token
   end
 
   def place_token(column, token)
